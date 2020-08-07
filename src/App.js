@@ -3,6 +3,7 @@ import GlobalStyles from './GlobalStyles'
 import styled from 'styled-components/macro'
 import Title from './comps/Title'
 import UploadForm from './comps/UploadForm'
+import ImageGrid from './comps/ImageGrid'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <AppStyled>
         <Title />
         <UploadForm />
+        <ImageGrid />
       </AppStyled>
     </>
   )

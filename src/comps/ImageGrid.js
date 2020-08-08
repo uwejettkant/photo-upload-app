@@ -2,12 +2,16 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import useFirestore from '../hooks/useFirestore'
 
-export default function ImageGrid() {
+export default function ImageGrid({ setSelectedImg }) {
   const { docs } = useFirestore('images')
   return (
     <ImageGridStyled>
       {docs.map((doc) => (
-        <div className="image-wrap" key={doc.id}>
+        <div
+          className="image-wrap"
+          key={doc.id}
+          onClick={() => setSelectedImg(doc.url)}
+        >
           <img src={doc.url} alt="user-upload" />
         </div>
       ))}

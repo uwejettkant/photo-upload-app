@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { motion } from 'framer-motion'
 
 export default function ShowcaseImage({ selectedImg, setSelectedImg }) {
   function handleClick(e) {
@@ -8,13 +9,24 @@ export default function ShowcaseImage({ selectedImg, setSelectedImg }) {
     }
   }
   return (
-    <BackdropStyled className="backdrop" onClick={handleClick}>
-      <img className="backdrop-img" src={selectedImg} alt="#" />
+    <BackdropStyled
+      className="backdrop"
+      onClick={handleClick}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <motion.img
+        className="backdrop-img"
+        src={selectedImg}
+        alt="#"
+        initial={{ y: '-100vh' }}
+        animate={{ y: '0' }}
+      />
     </BackdropStyled>
   )
 }
 
-const BackdropStyled = styled.div`
+const BackdropStyled = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
